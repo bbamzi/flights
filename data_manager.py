@@ -14,5 +14,3 @@ class DataManager:
             city_list.append(i['iataCode'])
         return  city_list
 
-dd = DataManager()
-print(dd.city_getter())
