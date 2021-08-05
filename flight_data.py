@@ -23,8 +23,8 @@ class FlightData(FlightSearch):
         self.cabin_bag_cost = self.data['bags_price']
         self.final_destination_arrival_date = self.data['local_arrival'].split('T')[0]
         self.final_destination_arrival_time = self.data['local_arrival'].split('T')[1][:-8]
-        self.arrival_at_stopover = self.data['route'][1]['local_arrival'].split('T')[1][:-8]
-        self.layover_departure = self.data['route'][1]['local_departure'].split('T')[1][:-8]
+        # self.arrival_at_stopover = self.data['route'][1]['local_arrival'].split('T')[1][:-8]
+        # self.layover_departure = self.data['route'][1]['local_departure'].split('T')[1][:-8]
 
         # self.departure_from_stopover = self.data[]
 
