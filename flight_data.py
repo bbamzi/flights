@@ -1,6 +1,7 @@
 from flight_search import FlightSearch
+import pyshorteners
 
-BIT_LY_TOKEN = '8a468945cbbc0457ba86a4fb9c1dc5d4ae42e544'
+ACCESS_TOKEN = '8a468945cbbc0457ba86a4fb9c1dc5d4ae42e544'
 
 class FlightData(FlightSearch):
     #This class is responsible for structuring the flight data.
@@ -23,6 +24,8 @@ class FlightData(FlightSearch):
         self.final_destination_arrival_time = self.data['local_arrival'].split('T')[1][:-8]
         self.arrival_at_stopover = self.data['route'][1]['local_arrival'].split('T')[1][:-8]
         self.layover_departure = self.data['route'][1]['local_departure'].split('T')[1][:-8]
+
+
         # self.departure_from_stopover = self.data[]
 
 
@@ -36,6 +39,10 @@ class FlightData(FlightSearch):
         total = self.airprice + self.baggage_cost
         return total
 
+    def deep_link_shortener(self):
+        s = pyshorteners.Shortener(api_key=ACCESS_TOKEN)
+        result = s.bitly.short(self.link)
+        return result
 
 
 
@@ -90,4 +97,4 @@ class FlightData(FlightSearch):
 fligt = FlightData('PAR')
 print(fligt.data)
 print(fligt.layover_departure)
-print(fligt.link)
+print(fligt.deep_link_shortener())
