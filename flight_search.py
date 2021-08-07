@@ -1,12 +1,14 @@
 import requests
+import os
 from datetime import datetime , timedelta
 ENDPOINT = 'http://tequila-api.kiwi.com/v2/search'
 today = datetime.now().date()
 calc = today + timedelta(days = 30 * 6)
 six_month= calc.strftime('%d/%m/%y')
 
+kiwi_apikey = os.environ.get('kiwi_apikey')
 
-HEADER = {'apikey':'WUIz467vwCtSt8GJF08xCCiIhv0NPSpJ'}
+HEADER = {'apikey':kiwi_apikey}
 
 class FlightSearch:
     def __init__(self,city):
@@ -22,3 +24,6 @@ class FlightSearch:
 
 
 
+# sea = FlightSearch('PAR')
+# print(sea.response)
+# print(kiwi_apikey)

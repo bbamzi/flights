@@ -20,3 +20,4 @@ class NotificationManager:
 
     def message_receiver(self, message):
         return message
+print(twilio_AUTH)

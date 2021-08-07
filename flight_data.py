@@ -1,7 +1,8 @@
 from flight_search import FlightSearch
+import os
 import pyshorteners
 
-ACCESS_TOKEN = '8a468945cbbc0457ba86a4fb9c1dc5d4ae42e544'
+
 
 
 class FlightData(FlightSearch):
@@ -38,9 +39,10 @@ class FlightData(FlightSearch):
         return total
 
     def deep_link_shortener(self):
-        s = pyshorteners.Shortener(api_key=ACCESS_TOKEN)
+        s = pyshorteners.Shortener(api_key=os.environ.get('BIT_LY_ACCESS_TOKEN'))
         result = s.bitly.short(self.link)
         return result
 
 
 
+dd = FlightData('PAR')
